@@ -4,7 +4,7 @@ from rest_framework.authentication import TokenAuthentication
 
 
 class ActivityLogMiddleware(MiddlewareMixin):
-    def process_view(self, request, view_func, view_args, view_kwargs):
+    def process_request(self, request):
         authentication = TokenAuthentication()
         try:
             user, token = authentication.authenticate(request)
